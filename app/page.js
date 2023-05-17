@@ -18,6 +18,7 @@ export default function Home() {
     unsplashApi.search
       .getPhotos({ query: query ? query : "random", page: page, perPage: 8 })
       .then((result) => {
+        console.logr;
         if (page !== 1 && data?.response?.results?.length > 0) {
           return setData({
             ...data,
@@ -28,7 +29,10 @@ export default function Home() {
         }
         setData(result);
       })
-      .catch(() => {
+      .catch((res) => {
+        if (res.message === "expected JSON response from server.") {
+          return setData({ errors: ["You have exceeded Unsplah API limit"] });
+        }
         setData({ errors: ["Failed to fetch from API"] });
       });
   };

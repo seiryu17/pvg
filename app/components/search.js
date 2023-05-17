@@ -23,6 +23,12 @@ function Search() {
           } else {
             setData(result);
           }
+        })
+        .catch((res) => {
+          if (res.message === "expected JSON response from server.") {
+            return setData({ errors: ["You have exceeded Unsplah API limit"] });
+          }
+          setData({ errors: ["Failed to fetch from API"] });
         });
     }
   };
