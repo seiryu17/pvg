@@ -44,7 +44,7 @@ function PhotoList({ data }) {
         onRequestClose={() => setShowModal(false)}
         style={customStyles}
       >
-        <div className="flex gap-2" style={buttonStyles}>
+        <div className="flex gap-2 z-10" style={buttonStyles}>
           <div onClick={downloadImage} className="cursor-pointer">
             <DownloadIcon />
           </div>
@@ -68,7 +68,6 @@ function PhotoList({ data }) {
         <p className="text-center">{selectedPhoto?.alt_description}</p>
         <p className="text-center">Credit: {selectedPhoto?.user.name}</p>
       </ReactModal>
-      {console.log(isLoading)}
       {data.response.results.map((x, i) => (
         <Photo
           key={i}
