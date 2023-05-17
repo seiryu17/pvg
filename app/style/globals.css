@@ -1,0 +1,25 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  height: 100%;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 961px) {
+  .ReactModal__Content {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 641px) {
+  .ReactModal__Content {
+    width: 100%;
+  }
+}
